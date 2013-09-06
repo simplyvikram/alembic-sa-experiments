@@ -4,6 +4,7 @@
 work in progress, fix formatting later
 
 Notes -
+
 * Needs py.test
 * Flask is not needed, just using it for its manage extension, will remove its
 dependency soon
@@ -11,7 +12,9 @@ dependency soon
 
 
 Pre steps -
+
 * create postgres database alembic-sa-experiments
+
  * createdb alembic-sa-experiments
 
 
