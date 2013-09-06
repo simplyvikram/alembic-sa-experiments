@@ -1,5 +1,24 @@
 
-** work in progress **
+**SqlAlchemy and Alembic testing**
 
-SqlAlchemy and Alembic testing, using py.test
-*Flask is not needed, just using it for its manage extension
+work in progress, fix formatting later
+
+Notes -
+* Needs py.test
+* Flask is not needed, just using it for its manage extension, will remove its
+dependency soon
+* no requirements.txt yet, will add later(uses sqlalchemy and flask for now)
+
+
+Pre steps -
+* create postgres database alembic-sa-experiments
+ * createdb alembic-sa-experiments
+
+
+Steps-
+
+* git clone https://github.com/simplyvikram/alembic-sa-experiments.git
+* alembic upgrade head
+* python manage.py create_random_users
+* python manage.py list_all_users
+* py.test -s -v
