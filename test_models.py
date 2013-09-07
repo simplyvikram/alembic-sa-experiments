@@ -6,24 +6,6 @@ from application import session
 from application.models import Email, TestUser
 
 
-# metadata_declarative.bind = engine
-# metadata_classical.bind = engine
-
-def f():
-    print "inside f"
-    raise SystemExit(1)
-
-
-class TestClass:
-    def test_one(self):
-        x = "this"
-        assert 'h' in x
-
-    def test_two(self):
-        x = "hello"
-        assert hasattr(x, 'lower')
-
-
 def create_in_memory_user():
     name, full_name, password = "tu1", "test user1", "tu1 password"
     test_user = TestUser(name, full_name, password)

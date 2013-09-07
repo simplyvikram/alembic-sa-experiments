@@ -134,7 +134,6 @@ class OrderItem(Base):
     special_note = Column(String(200))
 
     def __init__(self, item_id, quantity, special_note=None):
-        # self.order_id = order_id
         self.item_id = item_id
         self.quantity = quantity
         self.special_note = special_note

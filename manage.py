@@ -8,6 +8,9 @@ from application.models import (
 
 manager = Manager(app)
 
+@manager.command
+def hello():
+    print "Whateverrrr!! :-/"
 
 @manager.command
 def create_db():
@@ -62,7 +65,6 @@ def list_all_users():
     print q.all()
 
 
-# @manager.command
 @manager.option('-id', help='id of TestUser(pk)')
 def delete_user(id):
     query = session.query(TestUser).filter(TestUser.id == id)
