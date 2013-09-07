@@ -1,0 +1,54 @@
+from application import session
+from application.models import Customer, Item, Order, OrderItem
+from sqlalchemy import func
+
+
+vikram = Customer('vikram','7000')
+michael = Customer('Michael', '9000')
+jack = Customer('jack', '8000')
+session.add(vikram)
+session.add(michael)
+session.add(jack)
+session.commit()
+
+michael.orders.append(Order())
+vikram.orders.append(Order())
+jack.orders.append(Order())
+michael.orders.append(Order())
+
+session.commit()
+
+cookie = Item("Cookie", 1.50)
+muffin = Item("Muffin", 2.00, "Carby stuff")
+latte = Item("Latte", 4.35, "Steamed milk over expresso")
+mocha = Item("Mocha", 5.00, "Steamed milk over expresso and chocolate syrup")
+
+session.add(cookie)
+session.add(muffin)
+session.add(latte)
+session.add(mocha)
+
+session.commit()
+
+
+vikram =  session.query(Customer).filter(func.lower(Customer.name).like('%vikram%')).scalar()
+michael =  session.query(Customer).filter(func.lower(Customer.name).like('%michael%')).scalar()
+jack =  session.query(Customer).filter(func.lower(Customer.name).like('%jack%')).scalar()
+session.add(vikram)
+session.add(michael)
+session.add(jack)
+michael_order1 = michael.orders[0]
+vikram_order1 = vikram.orders[0]
+jack_order1 = jack.orders[0]
+michael_order2 = michael.orders[1]
+
+michael_order1.order_items.append(OrderItem(3, 10, "with soy milk latte"))
+michael_order1.order_items.append(OrderItem(4, 7, "no sugar mochas"))
+vikram_order1.order_items.append(OrderItem(1, 2, "two cookies"))
+vikram_order1.order_items.append(OrderItem(3, 1, "just a latte"))
+jack_order1.order_items.append(OrderItem(2, 1, "one muffin"))
+jack_order1.order_items.append(OrderItem(4, 1, "one mocha"))
+michael_order2.order_items.append(OrderItem(1, 1, "one cookie"))
+michael_order2.order_items.append(OrderItem(2, 1, "one muffin"))
+michael_order2.order_items.append(OrderItem(3, 1))
+michael_order2.order_items.append(OrderItem(4, 1))
