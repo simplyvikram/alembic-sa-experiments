@@ -52,3 +52,10 @@ michael_order2.order_items.append(OrderItem(1, 1, "one cookie"))
 michael_order2.order_items.append(OrderItem(2, 1, "one muffin"))
 michael_order2.order_items.append(OrderItem(3, 1))
 michael_order2.order_items.append(OrderItem(4, 1))
+
+
+customers = session.query(Customer).filter(func.lower(Customer.name) == func.lower(customer_name)).all()
+filter(lambda x: session.delete(x), customers)
+items = session.query(Item).filter(func.lower(Item.name).like('%px78xr%')).all()
+filter(lambda x: session.delete(x), items)
+session.commit()
