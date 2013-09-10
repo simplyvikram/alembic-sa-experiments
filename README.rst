@@ -5,8 +5,7 @@ work in progress, fix formatting later
 
 Notes -
 
-* Flask is not needed, just using it for its manage extension, will remove its
-dependency soon
+* Flask is not needed, just using it for its manage extension, will remove its dependency soon
 * no requirements.txt yet, will add later(uses sqlalchemy and flask for now)
 * Tests needs to be broken down, too ginormous
 
